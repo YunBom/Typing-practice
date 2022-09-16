@@ -2,7 +2,7 @@
 
 영어타자 게임
 
-아래 영상 참고
+참고영상<br>
 https://www.youtube.com/watch?v=_CsGSE5gwTA
 
 단어 API
