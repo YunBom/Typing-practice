@@ -5,10 +5,10 @@
 참고영상<br>
 https://www.youtube.com/watch?v=_CsGSE5gwTA
 
-단어 API
+단어 API<br>
 https://random-word-api.herokuapp.com/all
 
-API 호출 라이브러리
+API 호출 라이브러리<br>
 https://github.com/axios/axios
 
 
