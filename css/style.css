@@ -1,0 +1,79 @@
+:root {
+    --main-color:rgb(173, 0, 241);
+    --text-color:rgb(132, 0, 150);
+}
+
+*{
+    margin:0;
+    padding:0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: var(--main-color);
+    color:white;
+}
+
+.word-display {
+    padding: 30px;
+    font-size: 60px;
+    font-weight: 500;
+    color:var(--text-color)
+}
+
+.game-info {
+    display:flex;
+    padding: 40px;
+    justify-content: space-between;
+}
+
+.game-info span {
+    color: var(--text-color);
+    font-size: larger;
+}
+
+.word-input-box {
+    width: 30%;
+    min-width: 230px;
+}
+
+input {
+    box-sizing: border-box;
+    width:100%;
+    height: 25px;
+    padding: 0 3px;
+}
+
+.game-info div {
+    margin: 0 20px;
+}
+
+.button {
+    background-color: var(--main-color);
+    border:0;
+    padding:5px 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.loading {
+    background-color: rgb(201, 199, 199);
+    cursor:not-allowed;
+}
+
+.on-mouse {
+    border : 1px solid black;
+}
+
+
