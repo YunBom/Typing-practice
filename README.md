@@ -19,5 +19,5 @@ https://github.com/axios/axios
 - 제한시간 선택 (default time = 10sec)
 - 문장 연습 추가
 
-또 무슨 기능이 있을까
+또 무슨 기능이 있을까<br>
 한컴타자 소스에 있는 단어와 문장으로 넣고 싶었는데 못했음
