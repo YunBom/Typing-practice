@@ -15,7 +15,7 @@
         <h2>타자 연습</h2>
     </div>
     <div class="word-display">
-        hello
+        Hello!
     </div>
 
     <form class="word-input-box">
@@ -31,8 +31,27 @@
         </div>
     </div>
 
-    <button class="button loading" onClick=run()>게임을 불러오는 중...</button>
+<!-- 설정 -->
+    <div class="setting">
+        <div class="time-set">
+            <div class="set-text">시간 설정</div>
+            <input class="set-option" id="set-time" type="number" value="10" min="1" max="20">
+            <div class="set-text">(1-20초)</div>
+        </div>
+        <div class="length-set">
+            <div class="set-text">단어 길이</div>
+            <input type="number" class="set-option" id="set-length" value="10" min="3" max="15">
+            <div class="set-text">글자 이하</div>
+        </div>
+    </div>
 
+    <button class="setting-btn btn" onclick=setApply()>설정 적용</button>
+
+<!-- 게임 시작버튼 -->
+    <div>
+        <button class="button loading btn hidden" onClick=run()></button>
+        <button class="re-setting btn hidden">다시 설정</button>
+    </div>
     <script src="js/main.js"></script>
 
 </body>

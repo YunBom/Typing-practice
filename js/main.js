@@ -1,33 +1,43 @@
-const GAME_TIME = 10;
-let time = GAME_TIME;
+// gh-pages
+
 let score = 0;
 let isplaying = false;
 let timeInterval;
 let words = [];
+let loading = true;
 let checkInterval;
 const wordInput = document.querySelector(".word-input");     // 입력값
 const wordDisplay = document.querySelector(".word-display");     // 제시어
 const scoreDisplay = document.querySelector(".score");
 const timeDisplay = document.querySelector(".time");
-const button = document.querySelector("button");
+const button = document.querySelector(".button");
 const inputForm = document.querySelector(".word-input-box");
+const settingBtn = document.querySelector(".setting-btn");
+const reSetting = document.querySelector(".re-setting");
+const setting = document.querySelector(".setting");
+const timeSet=document.querySelector("#set-time");
+const lengthSet=document.querySelector("#set-length");
 
 
-init();
 
-function init(){
-    buttonChange("게임 로딩 중...");
+// 설정 적용
+function setApply(){
+    settingBtn.classList.add("hidden");
+    button.classList.remove("hidden");
+    setting.classList.add("non-visiblity");
     getWords();
+    buttonChange("게임 로딩 중...");
     inputForm.addEventListener("submit", checkMatch);
 }
 
 // 게임실행
 function run() {
-    if(isplaying){
+    if(isplaying){  // 게임중일 경우 버튼을 눌러도 동작하지 않음.
         return;
     }
+    wordDisplay.innerText = words[Math.floor(Math.random()*words.length)];
     isplaying = true;
-    time = GAME_TIME;
+    time = timeSet.valueAsNumber+1;
     wordInput.focus();
     scoreDisplay.innerText = 0;
     timeInterval=setInterval(countDown, 1000);
@@ -47,11 +57,14 @@ function getWords(){
     axios.get('https://random-word-api.herokuapp.com/all') //https://random-word-api.herokuapp.com/word?number=100
         .then(function (response) {
             response.data.forEach((word)=>{
-                if(word.length < 10) {
+                if(word.length <= lengthSet.value) {
                     words.push(word);
                 }
             })
             buttonChange("게임시작");
+            wordDisplay.innerText = "로딩 완료!";
+            loading=false;
+            reSetting.classList.remove("hidden");
         })
         .catch(function (error) {
             // handle error
@@ -71,7 +84,7 @@ function checkMatch(event) {
         }
         score++;
         scoreDisplay.innerText = score;
-        time = GAME_TIME;
+        time = timeSet.valueAsNumber+1;
         const randomIndex = Math.floor(Math.random()*words.length);
         wordDisplay.innerText = words[randomIndex];
     }
@@ -95,9 +108,17 @@ function buttonChange(text) {
     (text === '게임시작' ? button.classList.remove('loading'): button.classList.add('loading'));
 }
 
+
+// 버튼 마우스 이벤트
 button.addEventListener("mouseover", ()=>{
     button.classList.add("on-mouse");
 })
 button.addEventListener("mouseleave", ()=>{
     button.classList.remove("on-mouse");
+})
+settingBtn.addEventListener("mouseover", ()=>{
+    settingBtn.classList.add("on-mouse");
+})
+settingBtn.addEventListener("mouseleave", ()=>{
+    settingBtn.classList.remove("on-mouse");
 })
