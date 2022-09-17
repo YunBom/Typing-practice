@@ -24,10 +24,18 @@ const lengthSet=document.querySelector("#set-length");
 function setApply(){
     settingBtn.classList.add("hidden");
     button.classList.remove("hidden");
-    setting.classList.add("non-visiblity");
+    setting.classList.add("hidden");
     getWords();
     buttonChange("게임 로딩 중...");
     inputForm.addEventListener("submit", checkMatch);
+}
+
+//설정창 나타내기
+function set() {
+    setting.classList.remove("hidden"); // 설정창, 설정적용 버튼 나타내기
+    settingBtn.classList.remove("hidden");
+    button.classList.add("hidden");    // 게임시작 버튼, 설정적용버튼 나타내기
+    reSetting.classList.add("hidden");
 }
 
 // 게임실행
@@ -43,6 +51,7 @@ function run() {
     timeInterval=setInterval(countDown, 1000);
     checkInterval = setInterval(checkStatus, 50);
     buttonChange("게임중");
+    reSetting.classList.add("hidden");
 }
 function checkStatus(){
     if(!isplaying && time===0){
@@ -96,7 +105,14 @@ function checkMatch(event) {
 
 // 남은 시간
 function countDown() {
-    ((time>0) ? time-- : (isplaying=false))
+    if(time>0) {
+        time--;
+    }
+    else{
+        isplaying=false;
+        set();
+    }
+    
     if(!isplaying){
         clearInterval(timeInterval)
     }
@@ -121,4 +137,10 @@ settingBtn.addEventListener("mouseover", ()=>{
 })
 settingBtn.addEventListener("mouseleave", ()=>{
     settingBtn.classList.remove("on-mouse");
+})
+reSetting.addEventListener("mouseover", ()=>{
+    reSetting.classList.add("on-mouse");
+})
+reSetting.addEventListener("mouseleave", ()=>{
+    reSetting.classList.remove("on-mouse");
 })

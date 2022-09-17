@@ -50,8 +50,13 @@
 <!-- 게임 시작버튼 -->
     <div>
         <button class="button loading btn hidden" onClick=run()></button>
-        <button class="re-setting btn hidden">다시 설정</button>
+        <button class="re-setting btn hidden" onclick="set()">재설정</button>
     </div>
+
+    <div class="result"> 
+        <div class="text-style"> 당신의 점수는 <span class="result-score set-text"></span>점 입니다!</div>
+    </div>
+
     <script src="js/main.js"></script>
 
 </body>

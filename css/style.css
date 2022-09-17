@@ -18,9 +18,10 @@ body {
 .hidden {
     display:none;
 }
-.non-visiblity {
-    visibility: hidden;
+.hidden {
+    display:none;
 }
+
 
 .header {
     display: flex;
@@ -116,4 +117,8 @@ input {
     margin:5px 10px;
     color: var(--text-color);
     font-weight: bolder;
+}
+.text-style {
+    font-weight: bolder;
+    font-size: large;
 }
