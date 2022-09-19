@@ -15,7 +15,7 @@ body {
     justify-content: center;
 }
 
-.hidden {
+.setting.hidden {
     display:none;
 }
 .hidden {

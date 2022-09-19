@@ -36,7 +36,7 @@
         <div class="time-set">
             <div class="set-text">시간 설정</div>
             <input class="set-option" id="set-time" type="number" value="10" min="1" max="20">
-            <div class="set-text">(1-20초)</div>
+            <div class="set-text">초</div>
         </div>
         <div class="length-set">
             <div class="set-text">단어 길이</div>
@@ -51,10 +51,6 @@
     <div>
         <button class="button loading btn hidden" onClick=run()></button>
         <button class="re-setting btn hidden" onclick="set()">재설정</button>
-    </div>
-
-    <div class="result"> 
-        <div class="text-style"> 당신의 점수는 <span class="result-score set-text"></span>점 입니다!</div>
     </div>
 
     <script src="js/main.js"></script>

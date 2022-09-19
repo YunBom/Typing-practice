@@ -19,7 +19,6 @@ const timeSet=document.querySelector("#set-time");
 const lengthSet=document.querySelector("#set-length");
 
 
-
 // 설정 적용
 function setApply(){
     settingBtn.classList.add("hidden");
@@ -34,8 +33,14 @@ function setApply(){
 function set() {
     setting.classList.remove("hidden"); // 설정창, 설정적용 버튼 나타내기
     settingBtn.classList.remove("hidden");
-    button.classList.add("hidden");    // 게임시작 버튼, 설정적용버튼 나타내기
+    button.classList.add("hidden");    // 게임시작 버튼, 설정적용버튼 숨기기
     reSetting.classList.add("hidden");
+}
+
+//설정창 숨기기
+function hiddenSet(){
+    setting.classList.add("hidden");
+    settingBtn.classList.add("hidden");
 }
 
 // 게임실행
@@ -45,7 +50,7 @@ function run() {
     }
     wordDisplay.innerText = words[Math.floor(Math.random()*words.length)];
     isplaying = true;
-    time = timeSet.valueAsNumber+1;
+    time = timeSet.valueAsNumber;
     wordInput.focus();
     scoreDisplay.innerText = 0;
     timeInterval=setInterval(countDown, 1000);
@@ -57,6 +62,7 @@ function checkStatus(){
     if(!isplaying && time===0){
         buttonChange("게임시작");
         clearInterval(checkInterval);
+        wordDisplay.innerText=`${scoreDisplay.innerText}점`
     }
 }
 
@@ -85,7 +91,6 @@ function getWords(){
 // 게임 플레이
 function checkMatch(event) {    
     event.preventDefault();
-
     if (wordInput.value.toLowerCase() === wordDisplay.innerText.toLowerCase()) {
         wordInput.value = "";
         if(!isplaying) {
