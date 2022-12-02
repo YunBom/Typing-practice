@@ -1,4 +1,5 @@
-<h1>영어타자 게임</h1>
+<h1>영어타자 게임</h1> 
+현재 API가 막혀서 불가.
 
 **참고영상**<br>
 https://www.youtube.com/watch?v=_CsGSE5gwTA
